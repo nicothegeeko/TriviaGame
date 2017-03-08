@@ -1,0 +1,47 @@
+body {
+    background: url(../images/tardis.png) no-repeat;
+    background-size: cover;
+
+}
+
+.main-section {
+    background: white;
+}
+
+.panel-custom {
+    position: relative;
+    clear: both;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    margin-top: 20px;
+    margin-bottom: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.title-center {
+    text-align: center;
+}
+
+.start-button {
+    margin-left: 20%;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+p {
+    font-family: 'Khand', sans-serif;
+}
+
+button {
+    font-family: 'Khand', sans-serif;
+}
+
+#choices-div: {
+    float: left;
+}
