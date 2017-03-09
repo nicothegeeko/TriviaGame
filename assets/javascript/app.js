@@ -45,11 +45,14 @@ $(document).ready(function() {
 
             $("#choices-div").append(button);
 
+            
+
         }
 
 
 
     }
+
 
     //create an event for when the correct/wrong answer is clicked 
 
@@ -60,6 +63,8 @@ $(document).ready(function() {
 
         if (userPick != correctAnswers[quest]) {
             $('#choices-div').html("Wrong Answer!");
+
+             
 
 
             incorrectAnswer++;
@@ -92,27 +97,59 @@ $(document).ready(function() {
 
         var setIntervalId = setInterval(countdown, 1000);
 
+        var $startDiv = $('#start');
+
         function countdown() {
-            if (timeLeft === -1) {
+            if (timeLeft === 0) {
                 clearInterval(setIntervalId);
-                setIntervalId = setInterval(countdown, 1000);
-                var noTime = $('#start').html("Sorry, you ran out of Time");
-                setTimeout(function() {
-                    noTime.text("");
-                }, 2000);
+                timeLeft = 30;
+                elem.innerHTML = '';
+                $startDiv.html("Sorry, you ran out of Time");
 
+                    
 
+                    setTimeout(function() {
+                        $startDiv.empty();
+                        setIntervalId = setInterval(countdown, 1000);
+                    }, 2000);
+                } else {
+                    timeLeft--;
+                    elem.innerHTML = timeLeft + ' Seconds Remaining';
 
-                clearTimeout(setIntervalId);
-            } else {
-                elem.innerHTML = timeLeft + ' Seconds Remaining';
-                timeLeft--;
-
-
-
+                
             }
+                
+
         }
+        //This resets the timer for each question
+           var resetOnClick = setInterval(countdown, 1000);
+            $('#choices-div').on('click', 'button', function(e) {
+                clearInterval(setIntervalId);
+                timeLeft = 30;
+                elem.innerHTML = '';}
+                )
     }
+
+
+
+
+    //var noTime = $('#start').html("Sorry, you ran out of Time");
+    //setTimeout(function() {
+    //noTime.text("");
+    //}, 2000);
+
+
+
+    //clearTimeout(setIntervalId);
+    // } else {
+    //elem.innerHTML = timeLeft + ' Seconds Remaining';
+    //timeLeft--;
+
+
+
+    //}
+    // }
+    // }
 
 
     //trying to keep score of correct and wrong answers
